@@ -11,10 +11,12 @@ const url =
 
 // Define a function named getJoke; ✅
 let getJoke = () => {
+  jokeContainer.classList.remove("fade");
   fetch(url)
     .then((data) => data.json())
     .then((item) => {
       jokeContainer.textContent = `${item.joke}`;
+      jokeContainer.classList.add("fade");
     })
     .catch((error) => {
       console.error("Error fetching joke:", error);
